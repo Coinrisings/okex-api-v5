@@ -1,6 +1,6 @@
 from .client import Client
 from .consts import *
-
+# import inspect
 
 class TradeAPI(Client):
 
@@ -9,9 +9,10 @@ class TradeAPI(Client):
 
     # Place Order
     def place_order(self, instId, tdMode, side, ordType, sz, ccy=None, clOrdId=None, tag=None, posSide=None, px=None,
-                    reduceOnly=None):
-        params = {'instId': instId, 'tdMode': tdMode, 'side': side, 'ordType': ordType, 'sz': sz, 'ccy': ccy,
-                  'clOrdId': clOrdId, 'tag': tag, 'posSide': posSide, 'px': px, 'reduceOnly': reduceOnly}
+                    reduceOnly=None, tgtCcy=None):
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
+        # params = {'instId': instId, 'tdMode': tdMode, 'side': side, 'ordType': ordType, 'sz': sz, 'ccy': ccy,
+        #           'clOrdId': clOrdId, 'tag': tag, 'posSide': posSide, 'px': px, 'reduceOnly': reduceOnly}
         return self._request_with_params(POST, PLACR_ORDER, params)
 
     # Place Multiple Orders
@@ -56,14 +57,12 @@ class TradeAPI(Client):
 
     # Get Order History (last 7 days）
     def get_orders_history(self, instType, uly=None, instId=None, ordType=None, state=None, after=None, before=None, limit=None):
-        params = {'instType': instType, 'uly': uly, 'instId': instId, 'ordType': ordType, 'state': state,
-                  'after': after, 'before': before, 'limit': limit}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, ORDERS_HISTORY, params)
 
     # Get Order History (last 3 months)
     def orders_history_archive(self, instType, uly=None, instId=None, ordType=None, state=None, after=None, before=None, limit=None):
-        params = {'instType': instType, 'uly': uly, 'instId': instId, 'ordType': ordType, 'state': state,
-                  'after': after, 'before': before, 'limit': limit}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, ORDERS_HISTORY_ARCHIVE, params)
 
     # Get Transaction Details
