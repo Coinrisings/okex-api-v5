@@ -21,7 +21,7 @@ class TradeAPI(Client):
 
     # Cancel Order
     def cancel_order(self, instId, ordId=None, clOrdId=None):
-        params = {'instId': instId, 'ordId': ordId, 'clOrdId': clOrdId}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(POST, CANAEL_ORDER, params)
 
     # Cancel Multiple Orders
@@ -30,9 +30,7 @@ class TradeAPI(Client):
 
     # Amend Order
     def amend_order(self, instId, cxlOnFail=None, ordId=None, clOrdId=None, reqId=None, newSz=None, newPx=None):
-        params = {'instId': instId, 'cxlOnFailc': cxlOnFail, 'ordId': ordId, 'clOrdId': clOrdId, 'reqId': reqId,
-                  'newSz': newSz,
-                  'newPx': newPx}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(POST, AMEND_ORDER, params)
 
     # Amend Multiple Orders
@@ -41,18 +39,17 @@ class TradeAPI(Client):
 
     # Close Positions
     def close_positions(self, instId, mgnMode, posSide=None, ccy=None):
-        params = {'instId': instId, 'mgnMode': mgnMode, 'posSide': posSide, 'ccy': ccy}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(POST, CLOSE_POSITION, params)
 
     # Get Order Details
     def get_orders(self, instId, ordId=None, clOrdId=None):
-        params = {'instId': instId, 'ordId': ordId, 'clOrdId': clOrdId}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, ORDER_INFO, params)
 
     # Get Order List
     def get_order_list(self, instType=None, uly=None, instId=None, ordType=None, state=None, after=None, before=None, limit=None):
-        params = {'instType': instType, 'uly': uly, 'instId': instId, 'ordType': ordType, 'state': state,
-                  'after': after, 'before': before, 'limit': limit}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, ORDERS_PENDING, params)
 
     # Get Order History (last 7 days）
@@ -63,12 +60,12 @@ class TradeAPI(Client):
     # Get Order History (last 3 months)
     def orders_history_archive(self, instType, uly=None, instId=None, ordType=None, state=None, after=None, before=None, limit=None):
         params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
+        print(1111, params)
         return self._request_with_params(GET, ORDERS_HISTORY_ARCHIVE, params)
 
     # Get Transaction Details
     def get_fills(self, instType=None, uly=None, instId=None, ordId=None, after=None, before=None, limit=None):
-        params = {'instType': instType, 'uly': uly, 'instId': instId, 'ordId': ordId, 'after': after, 'before': before,
-                  'limit': limit}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, ORDER_FILLS, params)
 
     # Place Algo Order
