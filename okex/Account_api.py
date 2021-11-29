@@ -33,15 +33,13 @@ class AccountAPI(Client):
     # Get Bills Details (recent 7 days)
     def get_bills_detail(self, instType=None, ccy=None, mgnMode=None, ctType=None, type=None, subType=None, after=None, before=None,
                          limit=None):
-        params = {'instType': instType, 'ccy': ccy, 'mgnMode': mgnMode, 'ctType': ctType, 'type': type,
-                  'subType': subType, 'after': after, 'before': before, 'limit': limit}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, BILLS_DETAIL, params)
 
     # Get Bills Details (recent 3 months)
     def get_bills_details(self, instType=None, ccy=None, mgnMode=None, ctType=None, type=None, subType=None, after=None, before=None,
                           limit=None):
-        params = {'instType': instType, 'ccy': ccy, 'mgnMode': mgnMode, 'ctType': ctType, 'type': type,
-                  'subType': subType, 'after': after, 'before': before, 'limit': limit}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, BILLS_ARCHIVE, params)
 
     # Get Account Configuration
@@ -55,7 +53,7 @@ class AccountAPI(Client):
 
     # Get Account Configuration
     def set_leverage(self, lever, mgnMode, instId=None, ccy=None, posSide=None):
-        params = {'lever': lever, 'mgnMode': mgnMode, 'instId': instId, 'ccy': ccy, 'posSide': posSide}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(POST, SET_LEVERAGE, params)
 
     # Get Maximum Tradable Size For Instrument
@@ -90,7 +88,7 @@ class AccountAPI(Client):
 
     # Get interest-accrued
     def get_interest_accrued(self, instId=None, ccy=None, mgnMode=None, after=None, before=None, limit=None):
-        params = {'instId': instId, 'ccy': ccy, 'mgnMode': mgnMode, 'after': after, 'before': before, 'limit': limit}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, INTEREST_ACCRUED, params)
 
     # Get interest-accrued
