@@ -83,7 +83,13 @@ class AccountAPI(Client):
 
     # Get Fee Rates
     def get_fee_rates(self, instType, instId=None, uly=None, category=None):
-        params = {'instType': instType, 'instId': instId, 'uly': uly, 'category': category}
+        params = {'instType': instType,}
+        if instId is not None:
+            params['instId'] = instId
+        if uly is not None:
+            params['uly'] = uly,
+        if category is not None:
+            params['category'] = category
         return self._request_with_params(GET, FEE_RATES, params)
 
     # Get interest-accrued
