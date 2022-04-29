@@ -76,6 +76,7 @@ DICCOUNT_INTETEST_INFO = '/api/v5/public/discount-rate-interest-free-quota'
 SYSTEM_TIME = '/api/v5/public/time'
 LIQUIDATION_ORDERS = '/api/v5/public/liquidation-orders'
 MARK_PRICE = '/api/v5/public/mark-price'
+POSITION_TIER = '/api/v5/public/position-tiers'
 
 # TRADE
 PLACR_ORDER = '/api/v5/trade/order'
