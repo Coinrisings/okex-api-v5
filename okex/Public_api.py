@@ -69,6 +69,6 @@ class PublicAPI(Client):
         return self._request_with_params(GET, MARK_PRICE, params)
 
     # Get Tier
-    def get_tier(self, instType, tdMode, uly=None, instId=None, ccy=None, tier=None):
-        params = {'instType': instType, 'tdMode': tdMode, 'uly': uly, 'instId': instId, 'ccy': ccy, 'tier': tier}
+    def get_tier(self, instType, tdMode, uly=None, instId=None, tier=None):
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, POSITION_TIER, params)
