@@ -24,7 +24,7 @@ class FundingAPI(Client):
         return self._request_with_params(POST, FUNDS_TRANSFER, params)
 
     # Withdrawal
-    def coin_withdraw(self, ccy, amt, dest, toAddr, pwd, fee, chain):
+    def coin_withdraw(self, ccy, amt, dest, toAddr, fee, chain):
         params = {'ccy': ccy, 'amt': amt, 'dest': dest, 'toAddr': toAddr, 'fee': fee, 'chain': chain}
         return self._request_with_params(POST, WITHDRAWAL_COIN, params)
 
