@@ -29,13 +29,15 @@ class FundingAPI(Client):
         return self._request_with_params(POST, WITHDRAWAL_COIN, params)
 
     # Get Deposit History
-    def get_deposit_history(self, ccy=None, state=None, after=None, before=None, limit=None):
-        params = {'ccy': ccy, 'state': state, 'after': after, 'before': before, 'limit': limit}
+    def get_deposit_history(self, ccy=None, state=None, after=None, before=None, limit=None, depId= None, txId= None):
+        # params = {'ccy': ccy, 'state': state, 'after': after, 'before': before, 'limit': limit}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, DEPOSIT_HISTORIY, params)
 
     # Get Withdrawal History
-    def get_withdrawal_history(self, ccy=None, state=None, after=None, before=None, limit=None):
-        params = {'ccy': ccy, 'state': state, 'after': after, 'before': before, 'limit': limit}
+    def get_withdrawal_history(self, ccy=None, state=None, after=None, before=None, limit=None, depId= None, txId= None):
+        # params = {'ccy': ccy, 'state': state, 'after': after, 'before': before, 'limit': limit}
+        params = {k:v  for k, v in locals().items() if k != 'self' and v is not None}
         return self._request_with_params(GET, WITHDRAWAL_HISTORIY, params)
 
     # Get Currencies

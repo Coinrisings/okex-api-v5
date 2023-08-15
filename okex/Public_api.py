@@ -9,7 +9,7 @@ class PublicAPI(Client):
 
     # Get Instruments
     def get_instruments(self, instType, uly=None, instId=None):
-        params = {'instType': instType, 'uly': uly, 'instId': instId}
+        params = {'instType': instType}
         return self._request_with_params(GET, INSTRUMENT_INFO, params)
 
     # Get Delivery/Exercise History

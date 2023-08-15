@@ -105,5 +105,17 @@ CREATE = '/api/v5/users/subaccount/apikey'
 VIEW_LIST = '/api/v5/users/subaccount/list'
 CONTROL_TRANSFER = '/api/v5/asset/subaccount/transfer'
 
+# Convert闪兑
+CONVERT_CURRENCY = '/api/v5/asset/convert/currencies'
+CONVERT_PAIR = '/api/v5/asset/convert/currency-pair'
+CONVERT_QUOTE = '/api/v5/asset/convert/estimate-quote'
+CONVERT_TRADE = '/api/v5/asset/convert/trade'
+
+# Finance
+STAKING_DEFI_OFFERS = '/api/v5/finance/staking-defi/offers'
+STAKING_DEFI_PURCHASE = '/api/v5/finance/staking-defi/purchase'
+STAKING_DEFI_REDEEM = '/api/v5/finance/staking-defi/redeem'
+
+
 # status
 STATUS = '/api/v5/system/status'
